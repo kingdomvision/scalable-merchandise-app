@@ -1,0 +1,43 @@
+# Learn more about configuring your checkout UI extension:
+# https://shopify.dev/api/checkout-extensions/checkout/configuration
+
+# The version of APIs your extension will receive. Learn more:
+# https://shopify.dev/docs/api/usage/versioning
+
+api_version = "2024-07"
+
+# Gives your extension access to make external network calls, using the
+# JavaScript `fetch()` API. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#network-access
+[capabilities]
+api_access = true
+network_access = true
+
+[[extensions]]
+type = "ui_extension"
+name = "Offer Product on Thank You Page"
+handle = "order-status-thank-you"
+
+# [START order-status.config-extension]
+[[extensions.targeting]]
+target = "purchase.thank-you.block.render"
+module = "./src/Checkout.jsx"
+export = "thankYouBlock"
+
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "thk_product_id"
+type = "single_line_text_field"
+name = "Product ID"
+
+# [[extensions.settings.fields]]
+# key = "product"
+# type = "variant_reference"
+# name = "Product to offer"
+# description = "Select the product to offer on the thank you page"
+
+[extensions.capabilities]
+api_access = true
+network_access = true
+
+# [END order-status.config-extension]
