@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "e73f22b6d3311181225c7be72971f280"
+name = "Kingdom Vision"
+handle = "kv-testapp"
+application_url = "https://723f-154-198-107-186.ngrok-free.app"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_orders"
+
+[auth]
+redirect_urls = [
+  "https://723f-154-198-107-186.ngrok-free.app/auth/callback",
+  "https://723f-154-198-107-186.ngrok-free.app/auth/shopify/callback",
+  "https://723f-154-198-107-186.ngrok-free.app/api/auth/callback"
+]
+
+[pos]
+embedded = false
