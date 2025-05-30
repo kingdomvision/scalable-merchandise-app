@@ -1,0 +1,21 @@
+[capabilities]
+api_access = true
+network_access = true
+
+[[extensions]]
+name = "my-post-purchase-ui-extension"
+type = "checkout_post_purchase"
+handle = "my-post-purchase-ui-extension"
+
+
+# [[metafields]]
+# namespace = "my-namespace"
+# key = "my-key"
+
+# [[metafields]]
+# namespace = "my-namespace"
+# key = "my-key-2"
+
+[extensions.capabilities]
+api_access = true
+network_access = true
